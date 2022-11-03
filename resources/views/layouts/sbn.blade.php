@@ -25,7 +25,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body id="page-top">
+<body id="app">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -56,28 +56,27 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/employee"  >
-                    <i class="fas fa-fw fa-user"></i>
-                    <span>Employee</span>
-                </a>
+
+                <router-link to="employee" class="nav-link collapsed" to="/employee" >  <i class="fas fa-fw fa-user"></i> <span>Employee</span></router-link>
 
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <router-link class="nav-link collapsed" to="/employee" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>System Managment</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                </router-link>
+                <div id="collapseUtilities" class="collapse " aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Action:</h6>
-                        <a class="collapse-item" href="/country">Country</a>
-                        <a class="collapse-item" href="/city">City</a>
-                        <a class="collapse-item" href="/stat">Stat</a>
-                        <a class="collapse-item" href="/department">Department</a>
+                    <div class=" py-2 collapse-inner rounded" style="background-color:light">
+                        <router-link to="/country" class="collapse-item" >Country</router-link>
+                        <router-link to="/city" class="collapse-item" >City</router-link>
+                        <router-link to="/stat" class="collapse-item" >Stat</router-link>
+                        <router-link to="/department" class="collapse-item" >Department</router-link>
+
+
                     </div>
                 </div>
             </li>

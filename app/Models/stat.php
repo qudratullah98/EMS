@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class stat extends Model
 {
     use HasFactory;
+    public function city(){
+        return $this->hasOne(city::class);
+    }
 }

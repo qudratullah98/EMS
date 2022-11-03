@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\countryController;
 use App\Http\Controllers\apiEmploeeController;
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get("/employee/delete/{id}","destroy");
     Route::post("/saveEmployee","save");
     Route::post("/UpdateEmployee/{id}","update");
+    Route::get("/getEmpData/{id}","getEmpData");
 });
 
  Route::controller(countryController::class)->group(function(){
     Route::get("/country","index");
     Route::post("/country/store","store");
+    Route::get("/editCountry/{id}","Edit");
+    Route::get("/country/delete/{id}","destroy");
+ });
+ Route::controller(CityController::class)->group(function(){
+    Route::get("/city","index");
+    Route::get("/editCity/{id}","Edit");
+    route::get("/getstat","getstat");
+    Route::post('city/store',"store");
+    Route::get("/DeleteCity/{id}","destroy");
+    Route::post("/UpdatCity/{id}", "update");
  });

@@ -21,7 +21,7 @@
                     <td>{{ items.name}}</td>
                     <td>{{ items.country_code}}</td>
                     <td> </td>
-                      <td><router-link :to="{ path: 'Editcountry/'+items.id}"   class="btn btn-outline-secondary m-1">Edit</router-link><a class="btn btn-outline-danger m-1" @click="countryDelete(items.id)">Delete</a></td>
+                      <td><router-link :to="{ path: 'Editcountry/'+items.id}"   class="btn btn-outline-secondary m-1">Edit</router-link><button class="btn btn-outline-danger m-1" @click="countryDelete(items.id)">Delete</button></td>
 
               </tr>
             </tbody>

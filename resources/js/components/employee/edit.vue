@@ -140,6 +140,7 @@ export default {
     created() {
         this.getData();
         this.getDepartment();
+        this.GetEmployeeData();
     }
     ,
     methods: {
@@ -161,7 +162,7 @@ export default {
             )
         },
         UpdateEmployee() {
-            axios.post("/api/UpdateEmployee/"+this.$forceUpdate.params.id, {
+            axios.post("/api/UpdateEmployee/"+this.$route.params.id, {
                 name: this.form.name,
                 last_name: this.form.last_name,
                 address: this.form.address,
@@ -171,6 +172,16 @@ export default {
                 department: this.form.department,
             }).then(res => { this.alert = true });
 
+        },
+        GetEmployeeData(){
+            axios.get("/api/getEmpData/"+this.$route.params.id)
+            .then(res=>{
+                this.form.name=res.data.name;
+                this.form.last_name=res.data.last_name;
+                this.form.address=res.data.addrass;
+                this.form.country=res.data.country;
+
+            })
         }
     }
 }

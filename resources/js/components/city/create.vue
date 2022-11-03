@@ -2,9 +2,10 @@
     <div class="container">
         <div class="card">
             <div class="card-header" >
-                <p>{{message}}</p>
-                Create New country
-                <router-link to="/country" class="btn btn-outline-danger float-end">Back</router-link>
+                <p  v-if="message.length>0" class="alert alert-success">{{message}}</p>
+                <h4>  Create New City</h4>
+
+                <router-link to="/City" class="btn btn-outline-danger float-end">Back</router-link>
             </div>
             <div class="card-header" >
 
@@ -14,24 +15,26 @@
                 <form @submit.prevent="saveData">
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">
-                           Country Name
+                           City Name
                         </label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control error" name="name" required
-                              v-model="form.country"  autocomplete="name" autofocus  />
+                              v-model="form.city"  autocomplete="name" autofocus  />
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label for="last_name" class="col-md-4 col-form-label text-md-end">
-                           country
-                           code
+                        Stats
                         </label>
 
                         <div class="col-md-6">
-                            <input id="last_name" type="text" class="form-control error" name="last_name"
-                              v-model="form.country_code" required autocomplete="last_name" autofocus />
+
+                            <select  class="form-control error" autofocus v-model="form.stat_id" >
+                                <option :value="item.id "  v-for="(item,index) in stat" :key="index"> {{item.name}} </option>
+                            </select>
+
                         </div>
                     </div>
 
@@ -52,21 +55,26 @@
     export default{
         data(){
             return {
-
+                    stat:[],
                 form:{
-                     country:"",
-                     country_code:"",
+                     city:"",
+                     stat_id:"",
                 },
                 message:"",
             }
         },
+        created(){this.getData()},
         methods:{
-            saveData(){
-                axios.post("/api/country/store",{
-                    country:this.form.country,
-                    country_code:this.form.country_code,
-                }).then(res=>{this.message="data inserted successful " })
+            getData(){
+                axios.get("/api/getstat").then(res=>{ this.stat=res.data })
 
+            },
+            saveData(){
+                axios.post("api/city/store",{
+                   name: this.form.city,
+                   stat_id:this.form.stat_id
+                }).then(res=>
+                {this.message=res.data.message; })
             }
         }
     }

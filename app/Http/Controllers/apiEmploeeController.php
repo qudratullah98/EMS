@@ -49,8 +49,12 @@ class apiEmploeeController extends Controller
         $id->delete();
         return response()->json("employee deleted");
     }
-    public function update(employee $id)
-    {
+    public function update(Request $req, employee $id)
+        {
+            $emp=$id->update($req->post());
+        return response()->json($emp);
+    }
+    public function getEmpData(employee $id){
         return response()->json($id);
     }
 }

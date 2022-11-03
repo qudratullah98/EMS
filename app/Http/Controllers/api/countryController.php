@@ -5,6 +5,8 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\country;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\Return_;
+use Psy\CodeCleaner\ReturnTypePass;
 
 class countryController extends Controller
 {
@@ -18,5 +20,12 @@ class countryController extends Controller
               "name"=>$req->country,
         ]);
         return response()->json($country);
+       }
+       public function destroy(country $id){
+            $id->delete();
+            return response()->json(["message"=>"data deleted !"]);
+       }
+       public function Edit(country $id){
+            return response()->json($id);
        }
 }
