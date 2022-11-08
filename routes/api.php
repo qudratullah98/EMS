@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\countryController;
 use App\Http\Controllers\apiEmploeeController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\DepartmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get("/editCountry/{id}","Edit");
     Route::get("/country/delete/{id}","destroy");
  });
+ Route::controller(DepartmentController::class)->group(function(){
+    Route::get("/department","index");
+    Route::get("/UpdatDepartment/{id}","getData");
+
+});
  Route::controller(CityController::class)->group(function(){
     Route::get("/city","index");
     Route::get("/editCity/{id}","Edit");

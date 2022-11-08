@@ -2,6 +2,8 @@
     <div class="container">
       <div class="card">
         <div class="card-header">
+        <strong>City List</strong>
+
           <router-link to="createCity" class=" float-end btn btn-outline-primary">New City</router-link>
         </div>
        <p class="alert alert-success " v-if="message.length>1">{{message}}</p>
@@ -48,7 +50,7 @@
             axios.get("/api/city")
             .then(res=>{
                 this.city=res.data;
-              
+
             });
         }
      }

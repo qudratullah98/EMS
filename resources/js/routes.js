@@ -16,6 +16,7 @@ import statIndex from  './components/stat/index.vue'
 
 
 import departmentIndex from  './components/department/index.vue'
+import departmentEdit  from './components/department/edit.vue'
 
 export const routes= [
     {
@@ -39,6 +40,8 @@ export const routes= [
     { path: '/stat', component: statIndex },
 
     {path:"/department",component:departmentIndex},
+
+    {path:"/EditDepartment/:id",component:departmentEdit},
 
 
 ];

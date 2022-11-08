@@ -2,7 +2,9 @@
     <div class="container">
       <div class="card">
         <div class="card-header">
-          <router-link to="createCity" class=" float-end btn btn-outline-primary">New City</router-link>
+        <strong>Department List</strong>
+
+          <router-link to="createCity" class=" float-end btn btn-outline-primary">New Dpartment</router-link>
         </div>
        <p class="alert alert-success " v-if="message.length>1">{{message}}</p>
         <div class="card-body">
@@ -17,7 +19,7 @@
               <tr v-for="(items, index) in city  " :key="index"  >
                     <td>{{ items.id}}</td>
                     <td>{{ items.name}}</td>
-                      <td><router-link :to="{ path: 'EditCity/'+items.id}"   class="btn btn-outline-secondary m-1">Edit</router-link><a class="btn btn-outline-danger m-1" @click="CityDelete(items.id)">Delete</a></td>
+                      <td><router-link :to="{ path: 'EditDepartment/'+items.id}"   class="btn btn-outline-secondary m-1">Edit</router-link><a class="btn btn-outline-danger m-1" @click="CityDelete(items.id)">Delete</a></td>
 
               </tr>
             </tbody>
@@ -45,7 +47,7 @@
             })
         },
         GetData(){
-            axios.get("/api/city")
+            axios.get("/api/department")
             .then(res=>{
                 this.city=res.data;
 

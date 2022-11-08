@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class department extends Model
 {
     use HasFactory;
+    public function index(){
+        $department=department::get();
+        return response()->json($department);
+    }
 }

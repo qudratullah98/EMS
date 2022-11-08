@@ -2,6 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="card-header">
+        <strong>Employee List</strong>
         <router-link to="/employee/create" class=" float-end btn btn-outline-primary">New Employee</router-link>
       </div>
      <p class="alert alert-success " v-if="message.length>1">{{message}}</p>

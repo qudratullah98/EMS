@@ -2,7 +2,9 @@
     <div class="container">
       <div class="card">
         <div class="card-header">
-          <router-link to="createCity" class=" float-end btn btn-outline-primary">New City</router-link>
+        <strong>States List</strong>
+
+          <router-link to="createCity" class=" float-end btn btn-outline-primary">New Stat</router-link>
         </div>
        <p class="alert alert-success " v-if="message.length>1">{{message}}</p>
         <div class="card-body">
